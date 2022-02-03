@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign-up</title>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert {{category}}" role="alert">
+          {{message}}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+    <link rel="stylesheet" href="{{ url_for('signupbp.static' , filename='stylesheets/signupstyle.css') }}">
+    <script type = text/javascript src="{{ url_for('signupbp.static' , filename='js/valid.js') }}"></script>
+    <h1>SIGN-UP PAGE</h1>
+
+</head>
+
+<body>
+    <section>
+        <form id="signup" name="signup" onsubmit="return Signup()" method="POST" action="/signup/">
+            <div class="row">
+                <input type="textbox" placeholder="Username" name="uname" id="uname"><br>
+                <input type="password" placeholder="Password" name="pass" id="pass"><br>
+                <input type="password" placeholder="Confirm Password" name="cpass" id="cpass"><br>
+                <input type="email" placeholder="Email" name="emai" id="emai"><br>
+                <input type="number" placeholder="Phone Number" name="phno" id="phno"><br>
+                <input type="submit" value="signup">
+            </div>
+        </form>
+    </section>
+</body>
+</html>
